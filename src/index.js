@@ -38,7 +38,7 @@ const skills = [
 function App() {
   return (
     <div className="card">
-      <Avater />
+      <Avatar /> {/* Fixed typo here */}
       <div className="data">
         <Intro />
         <SkillsList />
@@ -46,13 +46,34 @@ function App() {
     </div>
   );
 }
-function Avater() {
-  return <img className="avatar" src={"15609339.jpg"} alt={"hi"} />;
+
+function Avatar() {
+  // Fixed typo here
+  return (
+    <img
+      className="avatar"
+      src={"15609339.jpg"}
+      alt={"Profile of Ihsan Saif"}
+    />
+  );
 }
+
 function Intro() {
+  const Verified = (
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"
+      alt="Verified Badge"
+      style={{
+        width: "20px",
+        height: "20px",
+        marginLeft: "5px",
+        verticalAlign: "middle",
+      }}
+    />
+  );
   return (
     <div>
-      <h1>Ihsan Saif</h1>
+      <h1>Ihsan Saif{Verified}</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
         dolores itaque nobis dolore. Architecto optio voluptates quidem nesciunt
@@ -71,15 +92,16 @@ function SkillsList() {
     </div>
   );
 }
+
 function Skills({ skillsObj }) {
   const { skill, color, level } = skillsObj;
   return (
     <div className="skill" style={{ backgroundColor: color }}>
       <span>{skill}</span>
       <span>
-        {level == "advanced" && "💪"}
-        {level == "intermediate" && "👍"}
-        {level == "beginner" && "👶"}
+        {level === "advanced" && "💪"}
+        {level === "intermediate" && "👍"}
+        {level === "beginner" && "👶"}
       </span>
     </div>
   );
